@@ -27,7 +27,7 @@ Home Assistant OS mit Apps/Add-ons wird benötigt.
 4. Unter **Konfiguration** Scanner-IP, Brevo-Zugangsdaten und Absenderadresse eintragen.
 5. Speichern und starten. **Beim Booten starten** aktivieren bzw. aktiviert lassen.
 
-Das Repository kann unabhängig davon zunächst geklont und als lokales Add-on installiert werden. Es werden keine vorgebauten Container-Images veröffentlicht.
+Es werden keine vorgebauten Container-Images veröffentlicht.
 
 ## Beispielkonfiguration
 

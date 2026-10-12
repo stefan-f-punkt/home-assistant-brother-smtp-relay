@@ -84,7 +84,7 @@ Eine Erfolgsmeldung am Scanner bestätigt zunächst nur die Annahme durch das lo
 
 Postfix speichert wartende Nachrichten im persistenten Add-on-Datenverzeichnis `/data/spool`. Bei vorübergehenden Fehlern werden sie erneut versucht; beim Start wird die Warteschlange zur erneuten Zustellung angestoßen. Dauerhafte Fehler können zu einer Unzustellbarkeitsnachricht führen, statt unbegrenzt erneut versucht zu werden.
 
-**Beim Booten starten** aktivieren. Add-on-Daten vor einer Deinstallation oder Migration sichern: Eine Deinstallation kann Warteschlange und Konfiguration löschen. Home-Assistant-Backups mit Add-on-Daten enthalten auch Zugangsdaten und Nachrichten; entsprechend geschützt aufbewahren.
+**Beim Booten starten** aktivieren. Add-on-Daten vor einer Deinstallation sichern: Eine Deinstallation kann Warteschlange und Konfiguration löschen. Home-Assistant-Backups mit Add-on-Daten enthalten auch Zugangsdaten und Nachrichten; entsprechend geschützt aufbewahren.
 
 ## Fehlersuche
 
@@ -99,17 +99,3 @@ Postfix speichert wartende Nachrichten im persistenten Add-on-Datenverzeichnis `
 | Scanner kann das Relay nicht erreichen | Direkte HA-IP, Portzuordnung, VLAN-Regeln und Add-on-Status prüfen. |
 | Konfiguration gültig, Mail fehlt | Relay-Protokoll, Brevo-Protokoll und Spamordner prüfen. |
 | Anlage zu groß | 25 MiB gelten für die gesamte kodierte Nachricht. Base64 vergrößert Anlagen ungefähr um ein Drittel; Brevo kann zusätzliche Grenzen haben. |
-
-## Bestehendes lokales Add-on auf dieses Repository umstellen
-
-Ein ursprünglich lokal installiertes Add-on (`local_brother_smtp_relay`) und die Installation aus diesem Repository sind unterschiedliche Home-Assistant-Installationen. Die Repository-Installation übernimmt Optionen und Warteschlange nicht automatisch.
-
-1. Beim lokalen Add-on warten, bis alle Nachrichten verarbeitet sind, und ein Backup erstellen.
-2. Dieses Repository hinzufügen und das neue Add-on installieren.
-3. Die bisherigen Optionen einschließlich SMTP-Schlüssel sicher in die neue Konfiguration übertragen.
-4. Das lokale Add-on stoppen und dessen Autostart deaktivieren.
-5. Erst danach das neue Add-on starten; beide verwenden standardmäßig denselben Host-Port.
-6. Eine Testmail senden und im Postfach prüfen.
-7. Das lokale Add-on erst nach erfolgreicher Prüfung entfernen.
-
-Eine bestehende funktionierende lokale Installation muss nicht sofort migriert werden.
