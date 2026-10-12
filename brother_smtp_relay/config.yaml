@@ -1,5 +1,5 @@
 name: Brother SMTP Relay
-version: "1.1.0"
+version: "1.1.1"
 slug: brother_smtp_relay
 description: Local SMTP relay for scanners with verified TLS to Brevo
 arch:

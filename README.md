@@ -1,5 +1,7 @@
 # Brother SMTP Relay for Home Assistant
 
+<img src="brother_smtp_relay/icon.png" width="128" height="128" alt="Brother SMTP Relay: Scanner mit ausgehendem Mailpfeil">
+
 Ein Home-Assistant-Add-on, das E-Mails von einem lokalen Scanner annimmt und über Brevo mit geprüfter TLS-Verbindung versendet. Der sichtbare Absendername ist frei konfigurierbar.
 
 Entstanden für einen Brother ADS-2800W, dessen TLS-Verbindungsaufbau direkt mit Brevo scheiterte. Der Scanner verbindet sich stattdessen mit dem lokalen Relay; Postfix übernimmt die moderne TLS-Verbindung zum SMTP-Anbieter.
