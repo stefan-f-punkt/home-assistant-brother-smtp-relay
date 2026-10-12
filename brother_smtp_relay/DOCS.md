@@ -8,6 +8,25 @@
 - Netzwerkzugriff vom Scanner auf Home Assistant, TCP 2525.
 - DNS und ausgehendes TCP 587 von Home Assistant zu Brevo.
 
+## Brevo-Zugangsdaten abrufen
+
+Öffne nach der Anmeldung bei Brevo **Einstellungen → SMTP & API → SMTP**:
+
+[https://app.brevo.com/settings/keys/smtp](https://app.brevo.com/settings/keys/smtp)
+
+Auf dieser Seite werden unter **Deine SMTP-Einstellungen** Server, Port und **Anmeldung** angezeigt. Außerdem lassen sich dort SMTP-Schlüssel erstellen und verwalten.
+
+| Angabe bei Brevo | Feld im Add-on |
+|---|---|
+| SMTP-Server | `relay_host` – üblicherweise `smtp-relay.brevo.com` |
+| Port | `relay_port` – für dieses Add-on `587` |
+| Anmeldung | `relay_username` – exakt den angezeigten Login übernehmen |
+| Vollständiger Wert eines aktiven SMTP-Schlüssels | `relay_password` |
+
+Für den Scanner kann ein eigener SMTP-Schlüssel mit einem erkennbaren Namen angelegt werden. Den vollständigen Schlüssel sicher speichern und im Add-on eintragen; die maskierte Anzeige bzw. nur die sichtbaren letzten Zeichen reichen nicht aus. Ein API-Schlüssel oder das Brevo-Kontopasswort ist kein Ersatz für den SMTP-Schlüssel.
+
+Die Anmeldung ist unabhängig von der sichtbaren Absenderadresse. Für `sender_address` eine bei Brevo freigegebene Absenderadresse verwenden.
+
 ## Einstellungen
 
 | Feld | Bedeutung |

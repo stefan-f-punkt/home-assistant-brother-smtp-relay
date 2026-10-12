@@ -43,6 +43,8 @@ sender_address: scanner@example.com
 sender_name: Dokumentenscanner
 ```
 
+Die Zugangsdaten findest du nach der Anmeldung unter **Einstellungen → SMTP & API → SMTP** auf der [Brevo-Seite für SMTP-Einstellungen und SMTP-Schlüssel](https://app.brevo.com/settings/keys/smtp). Dort kannst du SMTP-Schlüssel erstellen und verwalten. Den dort angezeigten Wert **Anmeldung** als `relay_username` und den vollständigen SMTP-Schlüssel als `relay_password` eintragen.
+
 Den **SMTP-Login aus Brevo** und einen **SMTP-Schlüssel** verwenden. Der Login kann von der sichtbaren Absenderadresse abweichen. Die Absenderadresse muss bei Brevo freigegeben sein. SMTP-Schlüssel weder in Issues noch in Git veröffentlichen.
 
 ## Scanner konfigurieren
