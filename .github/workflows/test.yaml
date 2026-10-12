@@ -1,0 +1,19 @@
+name: Tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sender header tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Build add-on
+        run: docker build -t brother-smtp-relay:test brother_smtp_relay
+      - name: Local SMTP integration test
+        run: python3 tests/integration.py

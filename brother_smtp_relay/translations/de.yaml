@@ -1,0 +1,7 @@
+configuration:
+  sender_name:
+    name: Absendername
+    description: Sichtbarer Name im Von-Feld. Leer lassen, um den ursprünglichen Namen des Scanners zu übernehmen. Nach dem Speichern das Add-on neu starten.
+  sender_address:
+    name: Absenderadresse
+    description: Bei Brevo freigegebene E-Mail-Adresse; muss mit der Geräte-E-Mail-Adresse des Scanners übereinstimmen.

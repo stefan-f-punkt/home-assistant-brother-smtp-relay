@@ -1,0 +1,31 @@
+name: Brother SMTP Relay
+version: "1.1.0"
+slug: brother_smtp_relay
+description: Local SMTP relay for scanners with verified TLS to Brevo
+arch:
+  - amd64
+  - aarch64
+url: https://github.com/stefan-f-punkt/home-assistant-brother-smtp-relay
+startup: services
+boot: auto
+init: false
+ports:
+  2525/tcp: 2525
+ports_description:
+  2525/tcp: SMTP vom Brother-Scanner
+options:
+  allowed_client: 192.0.2.10
+  relay_host: smtp-relay.brevo.com
+  relay_port: 587
+  relay_username: ""
+  relay_password: ""
+  sender_address: scanner@example.com
+  sender_name: ""
+schema:
+  allowed_client: str
+  relay_host: str
+  relay_port: port
+  relay_username: str
+  relay_password: password
+  sender_address: email
+  sender_name: "str?"
