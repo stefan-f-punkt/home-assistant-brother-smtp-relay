@@ -3,6 +3,7 @@ import unittest
 from pathlib import Path
 from email import policy
 from email.parser import Parser
+from email.header import decode_header, make_header
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'brother_smtp_relay'))
 from sender_header import make_sender_header
@@ -14,7 +15,10 @@ class SenderHeaderTests(unittest.TestCase):
             with self.subTest(name=name):
                 header = make_sender_header(name, 'scanner@example.com')
                 parsed = Parser(policy=policy.default).parsestr(header + '\n\n')['From'].addresses[0]
-                self.assertEqual(parsed.display_name, name)
+                # Decode the RFC 2047 phrase directly: older Python address
+                # parsers insert spaces between adjacent encoded words.
+                phrase = header.removeprefix('From: ').rsplit(' <', 1)[0]
+                self.assertEqual(str(make_header(decode_header(phrase))), name)
                 self.assertEqual(parsed.addr_spec, 'scanner@example.com')
                 self.assertNotIn('\n', header)
                 self.assertNotIn('\r', header)
